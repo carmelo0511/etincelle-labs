@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { inter, playfairDisplay } from "@/lib/fonts";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 
 const siteUrl = "https://etincelle.ca";
@@ -80,7 +81,10 @@ export default function RootLayout({
         <meta name="geo.position" content="43.6532;-79.3832" />
         <meta name="ICBM" content="43.6532, -79.3832" />
       </head>
-      <body>{children}</body>
+      <body>
+        {children}
+        <SpeedInsights />
+      </body>
     </html>
   );
 }
