@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://etincelle.ca/sitemap.xml",
+    sitemap: "https://etincellelabs.com/sitemap.xml",
   };
 }

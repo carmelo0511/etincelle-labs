@@ -117,10 +117,10 @@ export default function PrivacyPage() {
             <p className="mt-3">
               To exercise any of these rights, contact us at{" "}
               <a
-                href="mailto:hello@etincelle.ca"
+                href="mailto:hello@etincellelabs.com"
                 className="text-text-primary underline underline-offset-2 transition-colors hover:text-text-secondary"
               >
-                hello@etincelle.ca
+                hello@etincellelabs.com
               </a>
               .
             </p>
@@ -167,10 +167,10 @@ export default function PrivacyPage() {
               If you have questions or concerns about this privacy policy,
               contact us at{" "}
               <a
-                href="mailto:hello@etincelle.ca"
+                href="mailto:hello@etincellelabs.com"
                 className="text-text-primary underline underline-offset-2 transition-colors hover:text-text-secondary"
               >
-                hello@etincelle.ca
+                hello@etincellelabs.com
               </a>
               .
             </p>

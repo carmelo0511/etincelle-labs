@@ -483,10 +483,10 @@ export default function WorksPage() {
                   Inquiries
                 </span>
                 <a
-                  href="mailto:hello@etincelle.ca"
+                  href="mailto:hello@etincellelabs.com"
                   className="block text-[14px] text-text-secondary transition-colors hover:text-text-primary"
                 >
-                  hello@etincelle.ca
+                  hello@etincellelabs.com
                 </a>
               </div>
             </div>

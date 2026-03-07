@@ -150,10 +150,10 @@ export default function TermsPage() {
             <p className="mt-3">
               Questions about these terms? Reach us at{" "}
               <a
-                href="mailto:hello@etincelle.ca"
+                href="mailto:hello@etincellelabs.com"
                 className="text-text-primary underline underline-offset-2 transition-colors hover:text-text-secondary"
               >
-                hello@etincelle.ca
+                hello@etincellelabs.com
               </a>
               .
             </p>

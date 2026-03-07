@@ -70,10 +70,10 @@ export function Footer() {
                 <p className="mt-6 text-[13px] text-text-muted">
                   Or email us directly at{" "}
                   <a
-                    href="mailto:hello@etincelle.ca"
+                    href="mailto:hello@etincellelabs.com"
                     className="text-text-secondary underline underline-offset-2 transition-colors hover:text-text-primary"
                   >
-                    hello@etincelle.ca
+                    hello@etincellelabs.com
                   </a>
                 </p>
               </div>

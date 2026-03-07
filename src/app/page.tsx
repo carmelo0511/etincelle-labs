@@ -15,10 +15,10 @@ const jsonLd = {
   "@graph": [
     {
       "@type": "Organization",
-      "@id": "https://etincelle.ca/#organization",
+      "@id": "https://etincellelabs.com/#organization",
       name: "Etincelle Labs",
-      url: "https://etincelle.ca",
-      email: "hello@etincelle.ca",
+      url: "https://etincellelabs.com",
+      email: "hello@etincellelabs.com",
       description:
         "AI operations studio in Toronto. We build finished dashboards, automations, and AI-powered systems for service businesses.",
       founder: {
@@ -36,10 +36,10 @@ const jsonLd = {
     },
     {
       "@type": "LocalBusiness",
-      "@id": "https://etincelle.ca/#localbusiness",
+      "@id": "https://etincellelabs.com/#localbusiness",
       name: "Etincelle Labs",
-      url: "https://etincelle.ca",
-      email: "hello@etincelle.ca",
+      url: "https://etincellelabs.com",
+      email: "hello@etincellelabs.com",
       description:
         "AI operations studio in Toronto specializing in custom dashboards, workflow automation, and AI-powered tools for service businesses.",
       founder: {
@@ -71,15 +71,15 @@ const jsonLd = {
     },
     {
       "@type": "WebSite",
-      "@id": "https://etincelle.ca/#website",
-      url: "https://etincelle.ca",
+      "@id": "https://etincellelabs.com/#website",
+      url: "https://etincellelabs.com",
       name: "Etincelle",
-      publisher: { "@id": "https://etincelle.ca/#organization" },
+      publisher: { "@id": "https://etincellelabs.com/#organization" },
     },
     {
       "@type": "Service",
       name: "AI Operations Systems",
-      provider: { "@id": "https://etincelle.ca/#organization" },
+      provider: { "@id": "https://etincellelabs.com/#organization" },
       description:
         "Custom dashboards, workflow automation, AI-powered tools, and digital redesigns delivered in days at a fixed price.",
       areaServed: {

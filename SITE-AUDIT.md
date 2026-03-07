@@ -1,7 +1,7 @@
 # Etincelle — Site & SEO Audit
 
 **Date:** March 7, 2026
-**URL:** https://etincelle.ca
+**URL:** https://etincellelabs.com
 **Stack:** Next.js 16 (App Router) · TypeScript · Tailwind CSS v4 · Framer Motion
 
 ---
