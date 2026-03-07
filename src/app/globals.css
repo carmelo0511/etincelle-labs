@@ -1,26 +1,134 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-cream: #f1f2ea;
+  --color-cream-light: #F9F9F6;
+  --color-cream-dark: #e4e5dc;
+  --color-navy: #26211A;
+  --color-navy-light: #342E25;
+  --color-charcoal: #2C2C2C;
+  --color-text-primary: #1a1a19;
+  --color-text-secondary: #686963;
+  --color-text-muted: #9c9e94;
+  --color-text-inverse: #f1f2ea;
+  --color-border-light: #cfd0c8;
+  --color-border-dark: #3A3D50;
+  --color-accent-blue: #4A7CFF;
+  --color-accent-purple: #8B5CF6;
+  --color-accent-green: #34D399;
+  --color-accent-orange: #FB923C;
+  --color-accent-pink: #EC4899;
+  --color-accent-yellow: #FBBF24;
+  --color-accent-red: #F87171;
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-playfair), ui-serif, Georgia, serif;
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-border: var(--border);
+  --color-muted-foreground: var(--muted-foreground);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+html {
+  scroll-behavior: smooth;
+}
+
+/* Mobile: offset anchor scroll for sticky top navbar (~57px) */
+@media (max-width: 1023px) {
+  section,
+  footer {
+    scroll-margin-top: 60px;
   }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  color: var(--color-text-primary);
+  background-color: #ffffff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Focus-visible ring for keyboard navigation ──────────────────
+   Only shows when the browser detects keyboard input (Tab key),
+   so mouse users never see it. Uses a subtle offset ring that
+   works on both light and dark backgrounds. */
+:focus-visible {
+  outline: 2px solid var(--color-text-muted);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Anchor links and buttons inside dark sections get a lighter ring */
+.bg-navy :focus-visible,
+.bg-charcoal :focus-visible,
+.bg-navy-light :focus-visible {
+  outline-color: var(--color-text-inverse);
+}
+
+/* Sections extend their backgrounds behind the transparent navbar
+   by using negative left margin + padding to stretch full-width.
+   Content stays in place thanks to compensating padding. */
+@media (min-width: 1024px) {
+  main[data-sidebar] > section,
+  main[data-sidebar] > footer {
+    margin-left: -200px;
+    padding-left: 200px;
+    transition: padding-left 0.5s ease-out;
+  }
+
+  /* When lateral scroll is active, go full-width —
+     navbar is hidden so cards can use full viewport.
+     margin-left stays so dark bg fills edge-to-edge. */
+  html[data-lateral-scroll] main[data-sidebar] > section {
+    padding-left: 0;
+  }
+}
+
+/* shadcn/ui Card component variables */
+:root {
+  --radius: 0.625rem;
+  --card: #f1f2ea;
+  --card-foreground: #1a1a19;
+  --border: #cfd0c8;
+  --muted-foreground: #9c9e94;
+}
+
+/* ── Why Us card animations ─────────────────────────────────────── */
+
+/* Shimmer sweep across active card */
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* Gentle float for icon when card is active */
+@keyframes icon-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+.why-card-shimmer::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    rgba(255 255 255 / 0.06) 45%,
+    rgba(255 255 255 / 0.12) 50%,
+    rgba(255 255 255 / 0.06) 55%,
+    transparent 60%
+  );
+  animation: shimmer 3s ease-in-out infinite;
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+.why-card-icon-float {
+  animation: icon-float 3s ease-in-out infinite;
 }
