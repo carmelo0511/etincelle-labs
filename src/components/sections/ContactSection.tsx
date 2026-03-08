@@ -1,11 +1,10 @@
 "use client";
 
+import { useState, type FormEvent } from "react";
 import { Button } from "@/components/ui/Button";
 
 /* ---------- Colorful bar chart visualization ---------- */
 function ContactBarChart() {
-  /* Each bar: colored segment + gray/dark extension to fill the row.
-     Top bars are more colorful, bottom bars fade to monochrome. */
   const bars = [
     { color: "#FBBF24", colorWidth: 72, totalWidth: 88 },
     { color: "#4A7CFF", colorWidth: 65, totalWidth: 92 },
@@ -32,7 +31,6 @@ function ContactBarChart() {
         <div key={i} className="flex items-center">
           {bar.colorWidth > 0 ? (
             <>
-              {/* Colored segment */}
               <div
                 className="h-[14px] rounded-l-sm"
                 style={{
@@ -41,7 +39,6 @@ function ContactBarChart() {
                   opacity: 0.85,
                 }}
               />
-              {/* Gray extension */}
               <div
                 className="h-[14px] rounded-r-sm bg-text-primary/70"
                 style={{
@@ -50,7 +47,6 @@ function ContactBarChart() {
               />
             </>
           ) : (
-            /* Monochrome bar */
             <div
               className="h-[14px] rounded-sm bg-text-primary/80"
               style={{ width: `${bar.totalWidth}%` }}
@@ -65,28 +61,46 @@ function ContactBarChart() {
 /* ---------- Form field component ---------- */
 function FormField({
   label,
+  name,
   placeholder,
   type = "text",
+  value,
+  onChange,
+  required,
 }: {
   label: string;
+  name: string;
   placeholder: string;
   type?: string;
+  value: string;
+  onChange: (val: string) => void;
+  required?: boolean;
 }) {
   return (
     <div className="flex flex-col gap-2">
-      <label className="text-[14px] font-medium text-text-primary">
+      <label htmlFor={name} className="text-[14px] font-medium text-text-primary">
         {label}
       </label>
       {type === "textarea" ? (
         <textarea
+          id={name}
+          name={name}
           placeholder={placeholder}
           rows={1}
+          value={value}
+          onChange={(e) => onChange(e.target.value)}
+          required={required}
           className="border-b border-border-light bg-transparent pb-3 text-[15px] text-text-primary placeholder:text-text-muted/60 focus:border-text-primary focus:outline-none transition-colors resize-none"
         />
       ) : (
         <input
+          id={name}
+          name={name}
           type={type}
           placeholder={placeholder}
+          value={value}
+          onChange={(e) => onChange(e.target.value)}
+          required={required}
           className="border-b border-border-light bg-transparent pb-3 text-[15px] text-text-primary placeholder:text-text-muted/60 focus:border-text-primary focus:outline-none transition-colors"
         />
       )}
@@ -95,7 +109,41 @@ function FormField({
 }
 
 /* ---------- Main Contact Section ---------- */
+type FormStatus = "idle" | "submitting" | "success" | "error";
+
 export function ContactSection() {
+  const [status, setStatus] = useState<FormStatus>("idle");
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    company: "",
+    linkedin: "",
+    message: "",
+  });
+
+  const set = (field: keyof typeof form) => (val: string) =>
+    setForm((prev) => ({ ...prev, [field]: val }));
+
+  async function handleSubmit(e: FormEvent) {
+    e.preventDefault();
+    setStatus("submitting");
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+
+      if (!res.ok) throw new Error("Request failed");
+
+      setStatus("success");
+      setForm({ name: "", email: "", company: "", linkedin: "", message: "" });
+    } catch {
+      setStatus("error");
+    }
+  }
+
   return (
     <section className="bg-white">
       <div className="mx-auto max-w-6xl px-6 pb-16 pt-20 md:pb-24 md:pt-28 lg:px-8 lg:pt-32">
@@ -112,35 +160,87 @@ export function ContactSection() {
         {/* Two-column layout */}
         <div className="grid grid-cols-1 gap-16 lg:grid-cols-[1fr_0.8fr] lg:gap-20">
           {/* Left: Form */}
-          <div className="flex flex-col gap-10">
-            <FormField label="Name" placeholder="Etincelle" />
-            <FormField
-              label="Email"
-              placeholder="hello@etincelle.ai"
-              type="email"
-            />
-            <FormField label="Company" placeholder="Etincelle" />
-            <FormField
-              label="Linkedin Link"
-              placeholder="https://www.linkedin.com/company/etincelle"
-              type="url"
-            />
-            <FormField
-              label="Type of data and languages interested in"
-              placeholder="Atlas in French, German, and Chinese"
-            />
-            <FormField
-              label="Your message"
-              placeholder="Got a question or idea? Type it here!"
-              type="textarea"
-            />
-
-            <div className="mt-2">
-              <Button variant="primary" size="md">
-                Submit
-              </Button>
+          {status === "success" ? (
+            <div className="flex flex-col items-start justify-center gap-4 py-16">
+              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-green-100">
+                <svg className="h-6 w-6 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+              <h2 className="text-2xl font-medium text-text-primary">
+                Message sent
+              </h2>
+              <p className="text-text-secondary">
+                Thanks for reaching out — we&apos;ll get back to you shortly.
+              </p>
+              <button
+                onClick={() => setStatus("idle")}
+                className="mt-2 text-sm font-medium text-text-primary underline underline-offset-4 hover:text-text-secondary transition-colors"
+              >
+                Send another message
+              </button>
             </div>
-          </div>
+          ) : (
+            <form onSubmit={handleSubmit} className="flex flex-col gap-10">
+              <FormField
+                label="Name"
+                name="name"
+                placeholder="John Doe"
+                value={form.name}
+                onChange={set("name")}
+                required
+              />
+              <FormField
+                label="Email"
+                name="email"
+                placeholder="hello@etincelle.ai"
+                type="email"
+                value={form.email}
+                onChange={set("email")}
+                required
+              />
+              <FormField
+                label="Company"
+                name="company"
+                placeholder="Etincelle"
+                value={form.company}
+                onChange={set("company")}
+              />
+              <FormField
+                label="Linkedin Link"
+                name="linkedin"
+                placeholder="https://www.linkedin.com/company/etincelle"
+                type="url"
+                value={form.linkedin}
+                onChange={set("linkedin")}
+              />
+              <FormField
+                label="Your message"
+                name="message"
+                placeholder="Tell us about your challenge or what you'd like to build..."
+                type="textarea"
+                value={form.message}
+                onChange={set("message")}
+              />
+
+              {status === "error" && (
+                <p className="text-sm text-red-600">
+                  Something went wrong. Please try again or email us directly.
+                </p>
+              )}
+
+              <div className="mt-2">
+                <Button
+                  variant="primary"
+                  size="md"
+                  type="submit"
+                  disabled={status === "submitting"}
+                >
+                  {status === "submitting" ? "Sending..." : "Submit"}
+                </Button>
+              </div>
+            </form>
+          )}
 
           {/* Right: Bar chart visualization */}
           <div className="hidden items-start pt-4 lg:flex">

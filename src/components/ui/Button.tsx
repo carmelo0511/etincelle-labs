@@ -7,6 +7,8 @@ type ButtonProps = {
   href?: string;
   className?: string;
   onClick?: () => void;
+  type?: "button" | "submit";
+  disabled?: boolean;
 };
 
 const variantStyles = {
@@ -31,11 +33,14 @@ export function Button({
   href,
   className,
   onClick,
+  type = "button",
+  disabled,
 }: ButtonProps) {
   const classes = clsx(
     "inline-flex items-center justify-center rounded-full font-medium transition-colors duration-200",
     variantStyles[variant],
     sizeStyles[size],
+    disabled && "opacity-50 cursor-not-allowed",
     className
   );
 
@@ -48,7 +53,7 @@ export function Button({
   }
 
   return (
-    <button type="button" onClick={onClick} className={classes}>
+    <button type={type} onClick={onClick} disabled={disabled} className={classes}>
       {children}
     </button>
   );

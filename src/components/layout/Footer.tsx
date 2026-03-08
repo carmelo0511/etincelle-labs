@@ -6,7 +6,7 @@ import { AISummary } from "@/components/ui/AISummary";
 
 export function Footer() {
   const [formState, setFormState] = useState<"idle" | "submitting" | "success" | "error">("idle");
-  const [formData, setFormData] = useState({ name: "", pain: "", email: "" });
+  const [formData, setFormData] = useState({ name: "", email: "", company: "", linkedin: "", message: "" });
   const [errors, setErrors] = useState<{ name?: string; email?: string }>({});
 
   const validate = () => {
@@ -27,11 +27,15 @@ export function Footer() {
     if (Object.keys(errs).length > 0) return;
 
     setFormState("submitting");
-    // Simulate form submission — replace with real endpoint
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1200));
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+      if (!res.ok) throw new Error("Request failed");
       setFormState("success");
-      setFormData({ name: "", pain: "", email: "" });
+      setFormData({ name: "", email: "", company: "", linkedin: "", message: "" });
     } catch {
       setFormState("error");
     }
@@ -112,27 +116,14 @@ export function Footer() {
                       required
                       value={formData.name}
                       onChange={(e) => { setFormData({ ...formData, name: e.target.value }); setErrors({ ...errors, name: undefined }); }}
-                      placeholder="Your Name"
+                      placeholder="John Doe"
                       className="mt-1 w-full bg-transparent text-[15px] text-text-primary placeholder:text-text-muted/50 focus:outline-none"
                     />
                     {errors.name && <p className="mt-1 text-[12px] text-accent-red">{errors.name}</p>}
                   </div>
                   <div className="border-b border-border-light py-4">
-                    <label htmlFor="contact-pain" className="text-[11px] font-medium uppercase tracking-[0.1em] text-text-muted">
-                      What&apos;s your biggest time waster right now?
-                    </label>
-                    <input
-                      id="contact-pain"
-                      type="text"
-                      value={formData.pain}
-                      onChange={(e) => setFormData({ ...formData, pain: e.target.value })}
-                      placeholder="Pain Point"
-                      className="mt-1 w-full bg-transparent text-[15px] text-text-primary placeholder:text-text-muted/50 focus:outline-none"
-                    />
-                  </div>
-                  <div className="border-b border-border-light py-4">
                     <label htmlFor="contact-email" className="text-[11px] font-medium uppercase tracking-[0.1em] text-text-muted">
-                      Email address
+                      Email
                     </label>
                     <input
                       id="contact-email"
@@ -140,10 +131,49 @@ export function Footer() {
                       required
                       value={formData.email}
                       onChange={(e) => { setFormData({ ...formData, email: e.target.value }); setErrors({ ...errors, email: undefined }); }}
-                      placeholder="email@address.com"
+                      placeholder="hello@etincelle.ai"
                       className="mt-1 w-full bg-transparent text-[15px] text-text-primary placeholder:text-text-muted/50 focus:outline-none"
                     />
                     {errors.email && <p className="mt-1 text-[12px] text-accent-red">{errors.email}</p>}
+                  </div>
+                  <div className="border-b border-border-light py-4">
+                    <label htmlFor="contact-company" className="text-[11px] font-medium uppercase tracking-[0.1em] text-text-muted">
+                      Company
+                    </label>
+                    <input
+                      id="contact-company"
+                      type="text"
+                      value={formData.company}
+                      onChange={(e) => setFormData({ ...formData, company: e.target.value })}
+                      placeholder="Etincelle"
+                      className="mt-1 w-full bg-transparent text-[15px] text-text-primary placeholder:text-text-muted/50 focus:outline-none"
+                    />
+                  </div>
+                  <div className="border-b border-border-light py-4">
+                    <label htmlFor="contact-linkedin" className="text-[11px] font-medium uppercase tracking-[0.1em] text-text-muted">
+                      Linkedin Link
+                    </label>
+                    <input
+                      id="contact-linkedin"
+                      type="url"
+                      value={formData.linkedin}
+                      onChange={(e) => setFormData({ ...formData, linkedin: e.target.value })}
+                      placeholder="https://www.linkedin.com/company/etincelle"
+                      className="mt-1 w-full bg-transparent text-[15px] text-text-primary placeholder:text-text-muted/50 focus:outline-none"
+                    />
+                  </div>
+                  <div className="border-b border-border-light py-4">
+                    <label htmlFor="contact-message" className="text-[11px] font-medium uppercase tracking-[0.1em] text-text-muted">
+                      Your message
+                    </label>
+                    <textarea
+                      id="contact-message"
+                      rows={1}
+                      value={formData.message}
+                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                      placeholder="Tell us about your challenge or what you'd like to build..."
+                      className="mt-1 w-full resize-none bg-transparent text-[15px] text-text-primary placeholder:text-text-muted/50 focus:outline-none"
+                    />
                   </div>
                   <div className="mt-6">
                     <button
