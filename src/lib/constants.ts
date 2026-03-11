@@ -2,7 +2,7 @@ export const navLinks = [
   { label: "About", href: "#mission" },
   { label: "Pricing", href: "#pricing" },
   { label: "Works", href: "#news" },
-  { label: "Contact", href: "#contact" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export const blogPosts = [
@@ -120,8 +120,8 @@ export const pricingTiers = [
       "100% ownership — code, designs, accounts",
       "No retainer, no lock-in",
     ],
-    cta: "Start a project",
-    href: "#contact",
+    cta: "Get started",
+    href: "https://cal.com/bryan-nakache-vse3wk",
   },
   {
     name: "Support",
@@ -137,8 +137,8 @@ export const pricingTiers = [
       "System updates & improvements",
       "Cancel anytime — no contracts",
     ],
-    cta: "Add support",
-    href: "#contact",
+    cta: "Get in touch",
+    href: "https://cal.com/bryan-nakache-vse3wk",
   },
 ];
 

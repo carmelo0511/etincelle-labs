@@ -132,7 +132,7 @@ export function StepsSection() {
 
                   {/* CTA */}
                   <div className="mt-auto px-7 pb-4 md:px-8">
-                    <Button variant="primary" size="md" href={tier.href}>
+                    <Button variant="primary" size="md" href={tier.href} target={tier.href.startsWith("http") ? "_blank" : undefined}>
                       {tier.cta}
                     </Button>
                   </div>

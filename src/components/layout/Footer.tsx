@@ -131,7 +131,7 @@ export function Footer() {
                       required
                       value={formData.email}
                       onChange={(e) => { setFormData({ ...formData, email: e.target.value }); setErrors({ ...errors, email: undefined }); }}
-                      placeholder="hello@etincelle.ai"
+                      placeholder="hello@etincelle.com"
                       className="mt-1 w-full bg-transparent text-[15px] text-text-primary placeholder:text-text-muted/50 focus:outline-none"
                     />
                     {errors.email && <p className="mt-1 text-[12px] text-accent-red">{errors.email}</p>}

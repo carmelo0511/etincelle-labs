@@ -5,6 +5,7 @@ type ButtonProps = {
   size?: "sm" | "md" | "lg";
   children: React.ReactNode;
   href?: string;
+  target?: string;
   className?: string;
   onClick?: () => void;
   type?: "button" | "submit";
@@ -31,6 +32,7 @@ export function Button({
   size = "md",
   children,
   href,
+  target,
   className,
   onClick,
   type = "button",
@@ -46,7 +48,7 @@ export function Button({
 
   if (href) {
     return (
-      <a href={href} className={classes}>
+      <a href={href} target={target} rel={target === "_blank" ? "noopener noreferrer" : undefined} className={classes}>
         {children}
       </a>
     );

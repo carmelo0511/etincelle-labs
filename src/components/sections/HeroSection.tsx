@@ -167,8 +167,8 @@ export function HeroSection() {
           custom={0.3}
           className="mt-10 md:mt-14"
         >
-          <Button variant="primary" size="md" href="#contact">
-            Start a project
+          <Button variant="primary" size="md" href="https://cal.com/bryan-nakache-vse3wk" target="_blank">
+            Book a call
           </Button>
         </motion.div>
       </div>

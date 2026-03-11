@@ -193,7 +193,7 @@ export function ContactSection() {
               <FormField
                 label="Email"
                 name="email"
-                placeholder="hello@etincelle.ai"
+                placeholder="hello@etincelle.com"
                 type="email"
                 value={form.email}
                 onChange={set("email")}

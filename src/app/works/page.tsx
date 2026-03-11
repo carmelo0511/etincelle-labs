@@ -206,7 +206,7 @@ export default function WorksPage() {
           </a>
 
           <a
-            href="/#contact"
+            href="/contact"
             className="text-[12px] font-medium uppercase tracking-[0.1em] text-text-muted transition-colors hover:text-text-primary"
           >
             Contact

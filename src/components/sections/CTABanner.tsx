@@ -146,7 +146,7 @@ export function CTABanner() {
           </div>
 
           {/* Card track */}
-          <div className="flex flex-1 items-center overflow-hidden">
+          <div className="flex flex-1 items-center">
             <div
               ref={trackRef}
               className="flex px-6 lg:px-[max(32px,calc((100vw-1200px)/2))]"
@@ -177,18 +177,18 @@ export function CTABanner() {
                       maxHeight: "calc(100vh - 180px)",
                     }}
                   >
-                    {/* Sketch card — matching works page style */}
-                    <div className="h-full overflow-hidden rounded-xl bg-white">
-                      {/* Sketch illustration thumbnail */}
-                      <div className="relative flex aspect-[4/3] items-center justify-center bg-[#e8e9e0]">
+                    {/* Sketch card — flex column so text is never clipped */}
+                    <div className="flex h-full flex-col overflow-hidden rounded-xl bg-white">
+                      {/* Sketch illustration — flexible height, shrinks to fit */}
+                      <div className="relative flex min-h-0 flex-1 items-center justify-center bg-[#e8e9e0]">
                         <SketchIllustration
                           type={reason.sketchType}
                           className="h-full w-full p-10 opacity-80"
                         />
                       </div>
 
-                      {/* Title row: name + colored tag */}
-                      <div className="p-6 md:p-8">
+                      {/* Title row: name + colored tag — always visible */}
+                      <div className="shrink-0 p-6 md:p-8">
                         <div className="flex items-center gap-3">
                           <h3 className="text-[1.1rem] font-semibold leading-tight tracking-[-0.01em] text-text-primary md:text-[1.25rem]">
                             {reason.title}
