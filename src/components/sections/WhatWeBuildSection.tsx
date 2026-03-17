@@ -1,39 +1,32 @@
 import { AnimateOnScroll } from "@/components/ui/AnimateOnScroll";
-import { Phone, Star, MessageSquare, CalendarCheck, Workflow, Bot } from "lucide-react";
 
 const solutions = [
   {
-    icon: Phone,
     title: "AI Receptionist",
     description:
       "Answers every call, qualifies leads, books appointments. 24/7.",
   },
   {
-    icon: Star,
     title: "AI Review Manager",
     description:
       "Responds to every Google and Yelp review in your brand voice. Instantly.",
   },
   {
-    icon: MessageSquare,
     title: "AI Lead Capture",
     description:
       "A chatbot on your site that captures, qualifies, and follows up with leads while you sleep.",
   },
   {
-    icon: CalendarCheck,
     title: "AI Booking Assistant",
     description:
       "Handles scheduling, confirmations, reminders, and no-show follow-ups automatically.",
   },
   {
-    icon: Workflow,
     title: "Workflow Automation",
     description:
       "Connects your tools and eliminates copy-paste busywork across your operations.",
   },
   {
-    icon: Bot,
     title: "Custom AI Agent",
     description:
       "Something else? We build agents for whatever your business needs.",
@@ -54,25 +47,22 @@ export function WhatWeBuildSection() {
           </p>
         </AnimateOnScroll>
 
-        <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {solutions.map((solution, i) => {
-            const Icon = solution.icon;
-            return (
-              <AnimateOnScroll key={solution.title} delay={0.08 + i * 0.06}>
-                <div className="flex flex-col rounded-xl bg-cream-dark p-7 md:p-8">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-text-primary/[0.06]">
-                    <Icon className="h-5 w-5 text-text-primary" strokeWidth={1.5} />
-                  </div>
-                  <h3 className="mt-5 text-[1rem] font-semibold tracking-[-0.01em] text-text-primary">
-                    {solution.title}
-                  </h3>
-                  <p className="mt-2 text-[14px] leading-relaxed text-text-secondary">
-                    {solution.description}
-                  </p>
-                </div>
-              </AnimateOnScroll>
-            );
-          })}
+        <div className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {solutions.map((solution, i) => (
+            <AnimateOnScroll key={solution.title} delay={0.08 + i * 0.06} className="h-full">
+              <div className="flex h-full flex-col rounded-xl border border-border-light bg-cream-light p-7 md:p-8 transition-colors duration-200 hover:bg-cream-dark/50">
+                <span className="text-[13px] tabular-nums text-text-muted">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <h3 className="mt-4 font-serif text-[1.25rem] font-medium leading-snug tracking-[-0.01em] text-text-primary">
+                  {solution.title}
+                </h3>
+                <p className="mt-2.5 text-[14px] leading-relaxed text-text-secondary">
+                  {solution.description}
+                </p>
+              </div>
+            </AnimateOnScroll>
+          ))}
         </div>
       </div>
     </section>
