@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Works",
+  title: "Case Studies | AI Systems That Actually Work — Etincelle Labs Toronto",
   description:
-    "Selected projects by Etincelle — dashboards, automations, AI tools, and digital redesigns for Toronto service businesses.",
+    "Real AI systems built for real businesses. See how Etincelle Labs automates operations with AI agents, dashboards, and workflow automation.",
   openGraph: {
-    title: "Works | Etincelle",
+    title: "Case Studies | AI Systems That Actually Work — Etincelle Labs Toronto",
     description:
-      "Selected projects by Etincelle — dashboards, automations, AI tools, and digital redesigns.",
+      "Real AI systems built for real businesses. See how Etincelle Labs automates operations with AI agents, dashboards, and workflow automation.",
   },
 };
 

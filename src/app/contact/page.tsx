@@ -4,13 +4,13 @@ import { ContactSection } from "@/components/sections/ContactSection";
 import { ContactFooter } from "@/components/layout/ContactFooter";
 
 export const metadata: Metadata = {
-  title: "Contact Us | Etincelle",
+  title: "Get Started | Free AI Consultation — Etincelle Labs Toronto",
   description:
-    "Get in touch with Etincelle. Tell us about your operations challenges and we'll design a custom dashboard, automation, or AI tool for your Toronto business.",
+    "Book a free consultation with Etincelle Labs. Tell us what's slowing you down and we'll show you how AI can fix it. Response within 24 hours.",
   openGraph: {
-    title: "Contact Us | Etincelle",
+    title: "Get Started | Free AI Consultation — Etincelle Labs Toronto",
     description:
-      "Start a project with Etincelle — AI-powered dashboards, automations, and tools for Toronto service businesses.",
+      "Book a free consultation with Etincelle Labs. Tell us what's slowing you down and we'll show you how AI can fix it.",
   },
 };
 

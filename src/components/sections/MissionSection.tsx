@@ -2,9 +2,9 @@
 
 import { AnimateOnScroll } from "@/components/ui/AnimateOnScroll";
 
-const primaryText = "We are an AI operations studio.";
+const primaryText = "We're an AI operations studio in Toronto.";
 const secondaryText =
-  "We deliver finished systems — not decks, not proposals, not retainers that drag on. If your business runs on manual work, we replace it with something that runs itself.";
+  "We build AI agents tailored to how your business actually runs — whether that's answering phones, managing reviews, capturing leads, or automating the busywork that's eating your week.";
 
 export function MissionSection() {
   return (
@@ -38,14 +38,6 @@ export function MissionSection() {
           <div className="mt-16 grid grid-cols-2 gap-8 md:mt-20 md:grid-cols-4 md:gap-12">
             <div>
               <div className="text-[2.5rem] font-semibold tracking-[-0.03em] text-text-primary md:text-[3rem]">
-                8+
-              </div>
-              <div className="mt-1 text-[13px] uppercase tracking-[0.08em] text-text-muted">
-                Hrs/week saved per client
-              </div>
-            </div>
-            <div>
-              <div className="text-[2.5rem] font-semibold tracking-[-0.03em] text-text-primary md:text-[3rem]">
                 5
               </div>
               <div className="mt-1 text-[13px] uppercase tracking-[0.08em] text-text-muted">
@@ -54,10 +46,18 @@ export function MissionSection() {
             </div>
             <div>
               <div className="text-[2.5rem] font-semibold tracking-[-0.03em] text-text-primary md:text-[3rem]">
-                100%
+                10x
               </div>
               <div className="mt-1 text-[13px] uppercase tracking-[0.08em] text-text-muted">
-                Fixed pricing
+                Faster than traditional agencies
+              </div>
+            </div>
+            <div>
+              <div className="text-[2.5rem] font-semibold tracking-[-0.03em] text-text-primary md:text-[3rem]">
+                $0
+              </div>
+              <div className="mt-1 text-[13px] uppercase tracking-[0.08em] text-text-muted">
+                Risk — cancel anytime
               </div>
             </div>
             <div>

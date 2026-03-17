@@ -208,7 +208,10 @@ export function Footer() {
 
         {/* Bottom bar */}
         <div className="flex flex-col gap-4 border-t border-border-light/60 py-6 text-[12px] text-text-muted sm:flex-row sm:items-center sm:justify-between">
-          <span>&copy; 2026 Etincelle Labs, Inc. All rights reserved.</span>
+          <div className="flex flex-col gap-1">
+            <span>&copy; 2026 Etincelle Labs. All rights reserved.</span>
+            <span className="text-[11px]">AI Operations Studio — Toronto</span>
+          </div>
 
           <div className="flex items-center gap-5">
             <a href="/terms" className="transition-colors hover:text-text-primary">

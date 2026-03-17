@@ -9,13 +9,11 @@ export function ServicesSection() {
             className="text-center text-[1.5rem] font-normal leading-[1.35] tracking-[-0.02em] text-text-primary sm:text-[2rem] md:text-[2.5rem] lg:text-[3rem]"
             style={{ fontFamily: "var(--font-serif), Georgia, serif" }}
           >
-            We build operations dashboards, workflow
-            automation, AI-powered tools, and complete
-            digital redesigns{" "}
+            We build AI agents, workflow automations,
+            and smart dashboards{" "}
             <span className="text-text-muted">
-              for Toronto businesses that want to
-              replace manual work with systems that
-              run themselves.
+              for businesses that want to stop doing
+              everything manually — and start growing.
             </span>
           </h2>
         </AnimateOnScroll>

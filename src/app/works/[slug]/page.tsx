@@ -13,12 +13,13 @@ export function generateStaticParams() {
 }
 
 /* ── Dynamic metadata ──────────────────────────────────────────── */
-export function generateMetadata({
+export async function generateMetadata({
   params,
 }: {
-  params: { slug: string };
-}): Metadata {
-  const work = works.find((w) => w.slug === params.slug);
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const work = works.find((w) => w.slug === slug);
   if (!work) return {};
 
   return {
@@ -32,16 +33,17 @@ export function generateMetadata({
 }
 
 /* ── Page ─────────────────────────────────────────────────────── */
-export default function ProjectPage({
+export default async function ProjectPage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const work = works.find((w) => w.slug === params.slug);
+  const { slug } = await params;
+  const work = works.find((w) => w.slug === slug);
   if (!work) notFound();
 
   // Find adjacent projects for navigation
-  const currentIndex = works.findIndex((w) => w.slug === params.slug);
+  const currentIndex = works.findIndex((w) => w.slug === slug);
   const prevWork = currentIndex > 0 ? works[currentIndex - 1] : null;
   const nextWork =
     currentIndex < works.length - 1 ? works[currentIndex + 1] : null;

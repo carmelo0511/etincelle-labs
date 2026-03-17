@@ -9,19 +9,20 @@ const siteUrl = "https://etincellelabs.com";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Etincelle | AI Ops Studio — Toronto",
+    default: "AI Operations Studio in Toronto | AI Agents, Automation & Smart Systems — Etincelle Labs",
     template: "%s | Etincelle",
   },
   description:
-    "AI operations studio in Toronto. We build finished dashboards, automations, and AI-powered systems for service businesses — fixed price, delivered in days.",
+    "Toronto AI operations studio building custom AI agents, workflow automation, and smart systems for businesses. AI receptionist, review management, lead capture, and more. Monthly plans from $297.",
   keywords: [
     "AI operations studio",
-    "Toronto business automation",
-    "custom dashboards",
+    "AI agents Toronto",
+    "AI receptionist",
+    "AI automation Toronto",
     "workflow automation",
-    "AI-powered tools",
-    "operations redesign",
-    "small business automation Toronto",
+    "AI review management",
+    "AI chatbot",
+    "business automation Toronto",
   ],
   authors: [{ name: "Bryan Nakache", url: siteUrl }],
   creator: "Etincelle Labs",
@@ -30,16 +31,16 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_CA",
     url: siteUrl,
-    siteName: "Etincelle",
-    title: "Etincelle | AI Ops Studio — Toronto",
+    siteName: "Etincelle Labs",
+    title: "Etincelle Labs | AI Operations Studio — Toronto",
     description:
-      "Finished systems for your business — dashboards, automations, AI tools. Fixed price, delivered in days, 100% ownership.",
+      "We build AI agents that handle your calls, reviews, bookings, and leads — 24/7. Built for your business in days.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Etincelle | AI Ops Studio — Toronto",
+    title: "Etincelle Labs | AI Operations Studio — Toronto",
     description:
-      "Finished systems for your business — dashboards, automations, AI tools. Fixed price, delivered in days.",
+      "We build AI agents that handle your calls, reviews, bookings, and leads — 24/7. Built for your business in days.",
   },
   robots: {
     index: true,
@@ -76,6 +77,8 @@ export default function RootLayout({
           href="https://fonts.gstatic.com"
           crossOrigin="anonymous"
         />
+        {/* Google Search Console verification */}
+        <meta name="google-site-verification" content="PASTE_YOUR_VERIFICATION_CODE_HERE" />
         {/* Geo meta tags for hyperlocal Toronto SEO */}
         <meta name="geo.region" content="CA-ON" />
         <meta name="geo.placename" content="Toronto" />

@@ -145,8 +145,10 @@ export function HeroSection() {
           custom={0.15}
           className="mt-14 max-w-[900px] text-[2.5rem] font-normal leading-[1.3] tracking-[-0.03em] text-text-primary sm:text-[3rem] md:mt-20 md:text-[3.5rem] lg:text-[4.25rem]"
         >
-          Beyond{" "}
-          <span className="font-serif italic">manual.</span>
+          Your AI-powered{" "}
+          <span className="font-serif italic">front office.</span>
+          <br />
+          Built in days.
         </motion.h1>
 
         <motion.p
@@ -156,7 +158,7 @@ export function HeroSection() {
           custom={0.22}
           className="mt-6 max-w-lg text-[1.1rem] leading-relaxed text-text-secondary md:text-[1.2rem]"
         >
-          Finished systems for your business. Not billable hours.
+          We build AI agents tailored to your business — handling calls, reviews, bookings, and leads 24/7. Fixed setup. Monthly plans starting at $297.
         </motion.p>
 
         {/* CTA */}
@@ -165,10 +167,13 @@ export function HeroSection() {
           initial="hidden"
           animate="visible"
           custom={0.3}
-          className="mt-10 md:mt-14"
+          className="mt-10 flex flex-wrap items-center gap-4 md:mt-14"
         >
           <Button variant="primary" size="md" href="https://cal.com/bryan-nakache-vse3wk" target="_blank">
             Book a call
+          </Button>
+          <Button variant="outline" size="md" href="#process">
+            See how it works
           </Button>
         </motion.div>
       </div>

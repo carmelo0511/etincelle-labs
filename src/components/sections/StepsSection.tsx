@@ -2,64 +2,6 @@ import { AnimateOnScroll } from "@/components/ui/AnimateOnScroll";
 import { pricingTiers } from "@/lib/constants";
 import { Button } from "@/components/ui/Button";
 
-/* ---------- Decorative card visualizations ----------
-   These sit at the bottom of each card and blend into the
-   card background — no separate container, just elements
-   that fade naturally into the surface.
-   ---------------------------------------------------- */
-
-function ProjectViz() {
-  return (
-    <div className="flex w-full flex-col gap-1.5 px-8 pb-8 pt-2">
-      <div className="flex gap-1.5">
-        <div className="h-10 flex-[2] rounded-lg bg-text-primary/[0.05]" />
-        <div className="h-10 flex-[1] rounded-lg bg-text-primary/[0.08]" />
-      </div>
-      <div className="flex gap-1.5">
-        <div className="h-7 flex-[1] rounded-lg bg-text-primary/[0.06]" />
-        <div className="h-7 flex-[1] rounded-lg bg-text-primary/[0.04]" />
-        <div className="h-7 flex-[1] rounded-lg bg-text-primary/[0.07]" />
-      </div>
-      <div className="flex gap-1.5">
-        <div className="h-8 flex-[1] rounded-lg bg-text-primary/[0.04]" />
-        <div className="h-8 flex-[3] rounded-lg bg-text-primary/[0.06]" />
-      </div>
-    </div>
-  );
-}
-
-function SupportViz() {
-  return (
-    <div className="flex w-full items-center justify-center px-8 pb-8 pt-4">
-      <svg
-        viewBox="0 0 240 48"
-        fill="none"
-        className="w-full max-w-[240px] opacity-[0.14]"
-        aria-hidden="true"
-      >
-        {/* Flat line → pulse → flat line — like a heartbeat monitor */}
-        <path
-          d="M0 24 H60 L68 24 L74 8 L80 40 L86 14 L92 32 L98 24 H240"
-          stroke="#1a1a19"
-          strokeWidth="1.8"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        {/* Second pulse further right, quieter */}
-        <path
-          d="M140 24 L146 18 L152 30 L158 24"
-          stroke="#1a1a19"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      </svg>
-    </div>
-  );
-}
-
-const vizComponents = [ProjectViz, SupportViz];
-
 export function StepsSection() {
   return (
     <section id="pricing" className="bg-cream">
@@ -83,69 +25,102 @@ export function StepsSection() {
             <span className="text-text-secondary">Not the clock.</span>
           </h2>
           <p className="mt-4 max-w-md text-[15px] leading-relaxed text-text-secondary">
-            Fixed price. Delivered in days. You own everything.
+            Monthly plans. No contracts. You own everything.
           </p>
         </AnimateOnScroll>
 
         {/* Pricing cards grid */}
         <div className="mt-16 grid grid-cols-1 gap-6 lg:grid-cols-2 lg:gap-5">
-          {pricingTiers.map((tier, i) => {
-            const Viz = vizComponents[i];
-            return (
-              <AnimateOnScroll key={tier.name} delay={0.1 + i * 0.1}>
-                <div className="flex h-full flex-col overflow-hidden rounded-xl bg-cream-dark">
-                  {/* Tier header */}
-                  <div className="px-7 pt-7 pb-1 md:px-8 md:pt-8">
-                    <span className="text-[11px] font-medium uppercase tracking-[0.1em] text-text-muted">
-                      {tier.name}
+          {pricingTiers.map((tier, i) => (
+            <AnimateOnScroll key={tier.name} delay={0.1 + i * 0.1}>
+              <div
+                className={`relative flex h-full flex-col overflow-hidden rounded-xl ${
+                  tier.popular
+                    ? "border-2 border-text-primary bg-cream-dark"
+                    : "bg-cream-dark"
+                }`}
+              >
+                {/* Most Popular badge */}
+                {tier.popular && (
+                  <div className="absolute right-5 top-5 rounded-full bg-text-primary px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.08em] text-cream">
+                    Most Popular
+                  </div>
+                )}
+
+                {/* Tier header */}
+                <div className="px-7 pt-7 pb-1 md:px-8 md:pt-8">
+                  <span className="text-[11px] font-medium uppercase tracking-[0.1em] text-text-muted">
+                    {tier.name}
+                  </span>
+                  <div className="mt-3 flex items-baseline gap-1">
+                    <span className="text-[2.5rem] font-semibold tracking-[-0.03em] text-text-primary md:text-[3rem]">
+                      {tier.price}
                     </span>
-                    <div className="mt-3 flex items-baseline gap-1.5">
-                      <span className="text-[2.5rem] font-semibold tracking-[-0.03em] text-text-primary md:text-[3rem]">
-                        {tier.price}
-                      </span>
-                      <span className="text-[14px] text-text-secondary">
-                        {tier.currency}
-                        {tier.period !== "one-time" && (
-                          <span className="text-text-muted">
-                            {tier.period}
-                          </span>
-                        )}
-                      </span>
-                    </div>
-                    <p className="mt-3 max-w-sm text-[14px] leading-relaxed text-text-secondary">
-                      {tier.description}
-                    </p>
+                    <span className="text-[14px] text-text-muted">
+                      {tier.period}
+                    </span>
                   </div>
-
-                  {/* Features */}
-                  <ul className="mt-5 flex flex-col gap-2.5 px-7 pb-5 md:px-8">
-                    {tier.features.map((feature) => (
-                      <li
-                        key={feature}
-                        className="flex items-start gap-3 text-[13px] leading-snug text-text-secondary"
-                      >
-                        <span className="mt-[3px] block h-[5px] w-[5px] shrink-0 rounded-full bg-text-muted/60" />
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-
-                  {/* CTA */}
-                  <div className="mt-auto px-7 pb-4 md:px-8">
-                    <Button variant="primary" size="md" href={tier.href} target={tier.href.startsWith("http") ? "_blank" : undefined}>
-                      {tier.cta}
-                    </Button>
-                  </div>
-
-                  {/* Visualization — blends into card surface */}
-                  <div className="mt-2 flex items-end overflow-hidden">
-                    {Viz && <Viz />}
-                  </div>
+                  <p className="mt-3 max-w-sm text-[14px] leading-relaxed text-text-secondary">
+                    {tier.subtitle}
+                  </p>
                 </div>
-              </AnimateOnScroll>
-            );
-          })}
+
+                {/* Features */}
+                <ul className="mt-5 flex flex-col gap-2.5 px-7 pb-5 md:px-8">
+                  {tier.features.map((feature) => (
+                    <li
+                      key={feature}
+                      className="flex items-start gap-3 text-[13px] leading-snug text-text-secondary"
+                    >
+                      <span className="mt-[3px] block h-[5px] w-[5px] shrink-0 rounded-full bg-text-muted/60" />
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+
+                {/* Setup fee */}
+                <div className="px-7 pb-4 md:px-8">
+                  <p className="text-[12px] text-text-muted">
+                    {tier.setupFee}
+                  </p>
+                </div>
+
+                {/* CTA */}
+                <div className="mt-auto px-7 pb-7 md:px-8 md:pb-8">
+                  <Button
+                    variant="primary"
+                    size="md"
+                    href={tier.href}
+                    target="_blank"
+                  >
+                    {tier.cta}
+                  </Button>
+                </div>
+              </div>
+            </AnimateOnScroll>
+          ))}
         </div>
+
+        {/* Bottom text */}
+        <AnimateOnScroll delay={0.3}>
+          <div className="mt-10 text-center">
+            <p className="text-[14px] text-text-secondary">
+              Month-to-month. No contracts. Cancel anytime. You own everything.
+            </p>
+            <p className="mt-3 text-[12px] text-text-muted">
+              Need a one-time custom build? We do{" "}
+              <a
+                href="https://cal.com/bryan-nakache-vse3wk"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline underline-offset-2 transition-colors hover:text-text-primary"
+              >
+                project work
+              </a>{" "}
+              starting at $1,999.
+            </p>
+          </div>
+        </AnimateOnScroll>
       </div>
     </section>
   );

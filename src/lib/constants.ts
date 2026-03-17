@@ -1,7 +1,7 @@
 export const navLinks = [
-  { label: "About", href: "#mission" },
+  { label: "Solutions", href: "#solutions" },
   { label: "Pricing", href: "#pricing" },
-  { label: "Works", href: "#news" },
+  { label: "Case Studies", href: "/works" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -46,7 +46,7 @@ export const processSteps = [
     numeral: "ii",
     title: "Design",
     description:
-      "We architect the system — dashboards, automations, AI tools — tailored to your operations.",
+      "We architect the system — AI agents, automations, and integrations — tailored to your operations.",
   },
   {
     numeral: "iii",
@@ -70,7 +70,7 @@ export const processSteps = [
     numeral: "vi",
     title: "Support",
     description:
-      "Ongoing maintenance and improvements to keep your system ahead of the curve.",
+      "Ongoing optimization — your AI agents get smarter over time.",
   },
 ];
 
@@ -107,149 +107,158 @@ export const services = [
 
 export const pricingTiers = [
   {
-    name: "Project",
-    price: "$1,999",
-    currency: "CAD",
-    period: "one-time",
+    name: "Essentials",
+    price: "$297",
+    currency: "",
+    period: "/mo",
+    subtitle: "One AI agent. One problem solved.",
     description:
-      "A complete system — designed, built, and delivered in days. You own everything.",
+      "One AI agent. One problem solved.",
     features: [
-      "Full audit of your current operations",
-      "Custom dashboard, automation, or website",
-      "Delivered in 5 business days",
-      "100% ownership — code, designs, accounts",
-      "No retainer, no lock-in",
+      "One AI agent tailored to your business",
+      "Business-specific setup and training",
+      "Dashboard to track performance",
+      "Monthly performance check-in",
+      "Email support",
     ],
+    setupFee: "$500 one-time setup",
+    popular: false,
     cta: "Get started",
     href: "https://cal.com/bryan-nakache-vse3wk",
   },
   {
-    name: "Support",
-    price: "$199",
-    currency: "CAD",
-    period: "/month",
+    name: "Growth",
+    price: "$697",
+    currency: "",
+    period: "/mo",
+    subtitle: "A complete AI operations layer for your business.",
     description:
-      "Keep your system running and improving. Optional after any project delivery.",
+      "A complete AI operations layer for your business.",
     features: [
-      "Ongoing maintenance & bug fixes",
-      "Monthly performance check-ins",
-      "Priority response within 24 hours",
-      "System updates & improvements",
-      "Cancel anytime — no contracts",
+      "Unlimited AI agents and automations",
+      "Workflow automations connecting your existing tools",
+      "Custom integrations (CRM, POS, booking tools, etc.)",
+      "Bi-weekly optimization calls",
+      "Priority support via Slack or WhatsApp",
     ],
-    cta: "Get in touch",
+    setupFee: "$1,500 one-time setup",
+    popular: true,
+    cta: "Book a call",
     href: "https://cal.com/bryan-nakache-vse3wk",
   },
 ];
 
 export const works = [
   {
-    title: "Berry Fertility",
-    slug: "berry-fertility",
-    category: "FINTECH",
+    title: "Miso Ramen Bar",
+    slug: "miso-ramen-bar",
+    category: "AI REVIEWS",
     categoryColor: "#22C55E",
     description:
-      "A modern fertility platform that supports patients and supercharges clinics.",
+      "AI review manager for a busy Toronto ramen spot — every Google and Yelp review handled automatically.",
     longDescription:
-      "Berry Fertility needed a system to streamline patient onboarding, automate appointment workflows, and give clinicians a clear view of their pipeline. We designed and shipped a custom operations dashboard that reduced administrative overhead by 60% and improved patient communication with automated status updates.",
+      "Miso Ramen Bar was getting 40+ reviews a month across Google and Yelp but had no time to respond. We built an AI review manager that monitors every platform in real-time, drafts personalized on-brand responses, and flags negative reviews for immediate attention. Response time dropped from 3 days to under 15 minutes — and their Google rating went from 4.2 to 4.6 in two months.",
     sketchType: "burst" as const,
-    deliverables: ["Operations Dashboard", "Patient Workflow Automation", "Clinic Analytics"],
+    deliverables: ["AI Review Manager", "Multi-Platform Monitoring", "Reputation Dashboard"],
+    timeline: "3 days",
+    year: "2025",
+  },
+  {
+    title: "Glow Studio",
+    slug: "glow-studio",
+    category: "INSTAGRAM AUTOMATION",
+    categoryColor: "#EC4899",
+    description:
+      "ManyChat Instagram automation that turns DMs into booked appointments for a Queen West salon.",
+    longDescription:
+      "Glow Studio was spending hours replying to Instagram DMs and story mentions manually. We set up a ManyChat automation that auto-replies to story mentions with a personalized booking link, runs flash promo sequences for slow days, and captures lead info from DM conversations. Bookings from Instagram doubled in the first month — without the owner touching her phone.",
+    sketchType: "flow" as const,
+    deliverables: ["ManyChat DM Automation", "Story Mention Auto-Reply", "Promo Sequence Builder"],
+    timeline: "4 days",
+    year: "2025",
+  },
+  {
+    title: "ClearView Dental",
+    slug: "clearview-dental",
+    category: "AI RECEPTIONIST",
+    categoryColor: "#4A7CFF",
+    description:
+      "An AI receptionist that answers every call, books hygiene appointments, and handles insurance questions 24/7.",
+    longDescription:
+      "ClearView Dental's front desk was overwhelmed — missing calls during lunch, losing new patients to voicemail, and spending hours answering the same insurance questions. We deployed an AI receptionist trained on their services, insurance policies, and scheduling rules. It picks up every call on the first ring, books directly into their calendar, and forwards urgent cases to the dentist. Missed calls dropped to zero and new patient bookings increased 35%.",
+    sketchType: "head" as const,
+    deliverables: ["AI Phone Receptionist", "Calendar Integration", "Insurance FAQ Handler"],
     timeline: "5 days",
     year: "2025",
   },
   {
-    title: "North Trials",
-    slug: "north-trials",
-    category: "FINTECH",
+    title: "UrbanNest Realty",
+    slug: "urbannest-realty",
+    category: "WORKFLOW AUTOMATION",
+    categoryColor: "#FB923C",
+    description:
+      "Lead capture chatbot and CRM automation for a Toronto real estate brokerage.",
+    longDescription:
+      "UrbanNest Realty's agents were losing leads to slow follow-ups and manual CRM entry. We built a website chatbot that qualifies buyers instantly (budget, timeline, neighbourhood preference), syncs every lead to GoHighLevel, and triggers personalized drip email sequences. The system also auto-assigns leads to the right agent by zone. Lead response time went from 6 hours to under 2 minutes.",
+    sketchType: "wave" as const,
+    deliverables: ["Lead Capture Chatbot", "GoHighLevel CRM Sync", "Automated Drip Sequences"],
+    timeline: "5 days",
+    year: "2025",
+  },
+  {
+    title: "Iron Republic",
+    slug: "iron-republic",
+    category: "OPERATIONS DASHBOARD",
+    categoryColor: "#8B5CF6",
+    description:
+      "Member dashboard and class booking automation for a Liberty Village gym.",
+    longDescription:
+      "Iron Republic was tracking everything in spreadsheets — class attendance, memberships, coach schedules. We built a custom operations dashboard that gives them real-time visibility into attendance trends, automates class booking and waitlists, and sends churn prediction alerts when members start dropping off. Monthly cancellations decreased 22% after implementing proactive re-engagement automations.",
+    sketchType: "geometric" as const,
+    deliverables: ["Operations Dashboard", "Class Booking Automation", "Churn Prediction Alerts"],
+    timeline: "5 days",
+    year: "2025",
+  },
+  {
+    title: "Maple HVAC",
+    slug: "maple-hvac",
+    category: "AI BOOKING",
     categoryColor: "#22C55E",
     description:
-      "Cutting edge technology to connect cancer patients with clinical trials.",
+      "AI booking assistant for a GTA home services company — dispatching techs and confirming jobs automatically.",
     longDescription:
-      "North Trials was built to solve a critical gap — helping cancer patients find and enroll in relevant clinical trials. We developed an AI-powered matching engine and a streamlined intake process that reduced time-to-enrollment by 70%. The system intelligently surfaces trials based on patient profiles and location.",
-    sketchType: "head" as const,
-    deliverables: ["AI Matching Engine", "Patient Intake System", "Trial Management Dashboard"],
-    timeline: "8 days",
+      "Maple HVAC was losing service calls to voicemail and spending hours dispatching technicians manually. We built an AI booking assistant that handles inbound calls, checks technician availability by zone, books the right tech for the job type, and sends confirmations via SMS. Dispatch time dropped from 45 minutes to instant, and weekend call capture went from 30% to 95%.",
+    sketchType: "target" as const,
+    deliverables: ["AI Booking Assistant", "Zone-Based Tech Dispatch", "SMS Confirmations"],
+    timeline: "4 days",
     year: "2025",
   },
   {
-    title: "Relay",
-    slug: "relay",
-    category: "DATA HEALTH",
-    categoryColor: "#EF4444",
+    title: "Paws & Play",
+    slug: "paws-and-play",
+    category: "LEAD CAPTURE",
+    categoryColor: "#34D399",
     description:
-      "A tool for teachers to create assessments customized to their students and curriculum.",
+      "Website chatbot that captures leads and follows up via SMS for a Leslieville dog daycare.",
     longDescription:
-      "Relay empowers educators to build assessments that adapt to their specific curriculum and student needs. We created an AI-assisted question generator and a grading automation pipeline that saves teachers an average of 4 hours per week on assessment creation and marking.",
-    sketchType: "wave" as const,
-    deliverables: ["AI Question Generator", "Grading Automation", "Curriculum Dashboard"],
-    timeline: "6 days",
+      "Paws & Play's website was getting traffic but visitors were leaving without signing up. We deployed an AI chatbot trained on their services, pricing, and availability. It engages visitors naturally, answers questions about daycare packages and vaccination requirements, captures contact info, and triggers an SMS follow-up sequence. Website-to-lead conversion jumped from 2% to 11% in the first month.",
+    sketchType: "lightning" as const,
+    deliverables: ["AI Website Chatbot", "Lead Capture Flow", "SMS Follow-Up Automation"],
+    timeline: "3 days",
     year: "2025",
   },
   {
-    title: "Ké",
-    slug: "ke",
-    category: "PERSONAL",
-    categoryColor: "#3B82F6",
+    title: "The Bridal Edit",
+    slug: "the-bridal-edit",
+    category: "AI REVIEWS + SOCIAL",
+    categoryColor: "#A855F7",
     description:
-      "The accountability monster for people who are easily distracted.",
+      "AI review manager and Instagram DM automation for a Yorkville bridal boutique.",
     longDescription:
-      "Ké is a personal productivity tool designed for people who struggle with focus. The system uses behavioral nudges, smart scheduling, and progress tracking to keep users accountable. We built an adaptive notification engine that learns when users are most productive and intervenes when they drift.",
-    sketchType: "spiral" as const,
-    deliverables: ["Adaptive Notification Engine", "Progress Tracking", "Smart Scheduling"],
+      "The Bridal Edit needed to protect their premium reputation and convert Instagram followers into appointments. We built a combined system — an AI review manager that responds to every Google review with personalized, elegant replies, plus a ManyChat Instagram automation that handles DM inquiries about designers, availability, and pricing, then books private appointments directly. Review response went from sporadic to same-day, and Instagram-sourced appointments tripled.",
+    sketchType: "key" as const,
+    deliverables: ["AI Review Manager", "Instagram DM Automation", "Appointment Booking Flow"],
     timeline: "5 days",
-    year: "2024",
-  },
-  {
-    title: "gENSMAU",
-    slug: "gensmau",
-    category: "CONSUMER",
-    categoryColor: "#A855F7",
-    description: "A trivia game for all generations.",
-    longDescription:
-      "gENSMAU bridges generational gaps through trivia. We built a multiplayer game platform with AI-generated questions that span decades of pop culture, history, and science — ensuring every age group has questions they'll love and questions that challenge them.",
-    sketchType: "geometric" as const,
-    deliverables: ["Game Platform", "AI Question Engine", "Multiplayer System"],
-    timeline: "7 days",
-    year: "2024",
-  },
-  {
-    title: "Bad Chef",
-    slug: "bad-chef",
-    category: "CONSUMER",
-    categoryColor: "#A855F7",
-    description: "A fast paced card game of delicious deception.",
-    longDescription:
-      "Bad Chef is a social deduction card game where players bluff their way to culinary glory. We designed the game mechanics, created the digital companion app for score tracking and rules reference, and built a print-ready asset pipeline for the physical card deck.",
-    sketchType: "flow" as const,
-    deliverables: ["Game Design", "Digital Companion App", "Print Asset Pipeline"],
-    timeline: "10 days",
-    year: "2024",
-  },
-  {
-    title: "Rubric",
-    slug: "rubric",
-    category: "BRAND ASSETS",
-    categoryColor: "#F97316",
-    description: "Stealth product in the education space.",
-    longDescription:
-      "Rubric is a stealth-mode product reimagining how educational institutions evaluate student work. We can't share all the details yet, but the system involves AI-assisted evaluation, real-time collaboration between educators, and standardized rubric templates that adapt to different disciplines.",
-    sketchType: "geometric" as const,
-    deliverables: ["AI Evaluation System", "Collaboration Tools", "Rubric Templates"],
-    timeline: "Ongoing",
-    year: "2025",
-  },
-  {
-    title: "Artefact Writer",
-    slug: "artefact-writer",
-    category: "PERSONAL",
-    categoryColor: "#3B82F6",
-    description:
-      "A tool for editing your writing, like you edit a photo.",
-    longDescription:
-      "Artefact Writer treats written text like a visual medium — with layers, filters, and non-destructive editing. We built an AI writing assistant that helps users restructure, rephrase, and refine their prose through an intuitive visual interface inspired by photo editing workflows.",
-    sketchType: "head" as const,
-    deliverables: ["Visual Text Editor", "AI Writing Assistant", "Export Pipeline"],
-    timeline: "6 days",
     year: "2025",
   },
 ];
@@ -267,7 +276,7 @@ export const faqs = [
   {
     question: "What kind of businesses do you work with?",
     answer:
-      "Service businesses in Toronto — restaurants, photo studios, salons, gyms, retail shops, clinics. Anyone whose online presence isn't converting visitors into customers, or whose operations are eating up hours that should be spent on clients.",
+      "Any business that's losing time to manual work, missed calls, or slow follow-ups. We've worked with restaurants, clinics, studios, home service companies, and more — but our AI agents adapt to any industry.",
   },
   {
     question: "How long does a typical project take?",
@@ -287,6 +296,16 @@ export const faqs = [
   {
     question: "Can you work with our existing tools?",
     answer:
-      "Absolutely. We integrate with whatever you already use — Google Workspace, Notion, Airtable, Shopify, Square, and hundreds more via APIs and automation platforms.",
+      "Absolutely. We integrate with whatever you already use — Google Workspace, Notion, Airtable, Shopify, Square, Make.com, Zapier, GoHighLevel, and hundreds more via APIs and automation platforms.",
+  },
+  {
+    question: "What's an AI agent?",
+    answer:
+      "An AI agent is a system that handles a specific job for your business automatically — like answering phone calls, responding to reviews, capturing leads on your website, or booking appointments. It runs 24/7, learns your business, and gets better over time.",
+  },
+  {
+    question: "Can I start small and upgrade later?",
+    answer:
+      "Yes. Most clients start with our Essentials plan — one AI agent solving their biggest pain point. Once they see results, they upgrade to Growth to automate more of their operations.",
   },
 ];

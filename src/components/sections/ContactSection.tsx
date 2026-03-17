@@ -152,9 +152,22 @@ export function ContactSection() {
           <h1 className="font-serif text-[2.75rem] font-normal leading-[1.1] tracking-[-0.02em] text-text-primary md:text-[3.5rem] lg:text-[4rem]">
             Contact
           </h1>
-          <p className="mt-4 max-w-md text-[16px] leading-relaxed text-text-secondary">
-            Please fill out the form below to contact our team.
+          <p className="mt-4 max-w-lg text-[16px] leading-relaxed text-text-secondary">
+            Tell us what&apos;s slowing you down. We&apos;ll send a free 5-minute video audit of how AI can help — within 24 hours.
           </p>
+          <div className="mt-6">
+            <a
+              href="https://cal.com/bryan-nakache-vse3wk"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-full border border-text-primary px-5 py-2.5 text-[14px] font-medium text-text-primary transition-colors hover:bg-text-primary hover:text-white"
+            >
+              Or book a call directly
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </a>
+          </div>
         </div>
 
         {/* Two-column layout */}
@@ -238,6 +251,9 @@ export function ContactSection() {
                 >
                   {status === "submitting" ? "Sending..." : "Submit"}
                 </Button>
+                <p className="mt-4 text-[12px] text-text-muted">
+                  Free consultation &bull; No obligation &bull; Response within 24 hours
+                </p>
               </div>
             </form>
           )}

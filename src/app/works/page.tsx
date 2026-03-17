@@ -16,7 +16,7 @@ const fadeUp: Variants = {
 };
 
 /* ── Areas of work with colored dot separators ──────────────────── */
-const areas = ["Applied AI", "Adaptive Interfaces", "Digital Health", "Education", "Gaming"];
+const areas = ["AI Agents", "Workflow Automation", "Dashboards", "Operations Redesign"];
 const dotColors = ["#FB923C", "#EF4444", "#34D399", "#8B5CF6", "#4A7CFF", "#EC4899"];
 
 /* ── Letter-flip title config ───────────────────────────────────── */
@@ -89,6 +89,43 @@ function ProjectCard({
         </span>
       </a>
     </FadeIn>
+  );
+}
+
+/* ── Other Work collapsed section ──────────────────────────────────── */
+const otherWorkSlugs = ["iron-republic", "maple-hvac", "paws-and-play", "the-bridal-edit"];
+
+function OtherWorkSection() {
+  const [open, setOpen] = useState(false);
+  const otherWorks = works.filter((w) => otherWorkSlugs.includes(w.slug));
+
+  return (
+    <div className="mt-20">
+      <button
+        type="button"
+        onClick={() => setOpen(!open)}
+        className="flex items-center gap-3 text-[14px] font-medium text-text-muted transition-colors hover:text-text-primary"
+      >
+        <span>Other Work</span>
+        <svg
+          width="16"
+          height="16"
+          viewBox="0 0 16 16"
+          fill="none"
+          aria-hidden="true"
+          className={`transition-transform duration-300 ${open ? "rotate-180" : ""}`}
+        >
+          <path d="M4 6l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      </button>
+      {open && (
+        <div className="mt-8 grid grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2 lg:gap-x-8 lg:gap-y-16">
+          {otherWorks.map((work, i) => (
+            <ProjectCard key={work.title} work={work} index={i} />
+          ))}
+        </div>
+      )}
+    </div>
   );
 }
 
@@ -320,9 +357,8 @@ export default function WorksPage() {
               className="text-center text-[2rem] font-normal leading-[1.22] tracking-[-0.025em] text-text-primary sm:text-[2.5rem] md:text-[3rem] lg:text-[3.5rem]"
               style={{ fontFamily: "var(--font-serif), Georgia, serif" }}
             >
-              I&apos;m a builder who turns
-              messy operations into
-              systems that run themselves.
+              Real systems we&apos;ve built
+              for real businesses.
             </motion.h1>
 
             <motion.div
@@ -352,13 +388,18 @@ export default function WorksPage() {
           </div>
         </section>
 
-        {/* ── Projects grid — 2 column ─────────────────────── */}
+        {/* ── Featured projects grid — 2 column ─────────────── */}
         <section className="mx-auto max-w-[1000px] px-8 pb-20 pt-14 md:pb-28 md:pt-20">
           <div className="grid grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2 lg:gap-x-8 lg:gap-y-16">
-            {works.map((work, i) => (
-              <ProjectCard key={work.title} work={work} index={i} />
-            ))}
+            {works
+              .filter((w) => !otherWorkSlugs.includes(w.slug))
+              .map((work, i) => (
+                <ProjectCard key={work.title} work={work} index={i} />
+              ))}
           </div>
+
+          {/* Other Work — collapsed */}
+          <OtherWorkSection />
         </section>
 
         {/* ── Founder statement with Canada goose ────────── */}
@@ -401,9 +442,9 @@ export default function WorksPage() {
               className="relative z-10 text-center text-[1.6rem] font-normal leading-[1.3] tracking-[-0.02em] text-text-primary sm:text-[2rem] md:text-[2.4rem] lg:text-[2.75rem]"
               style={{ fontFamily: "var(--font-serif), Georgia, serif" }}
             >
-              I design, build, and ship
-              dashboards, automations, and
-              AI tools — so Toronto business
+              We design, build, and ship
+              AI agents, automations, and
+              smart dashboards — so business
               owners can stop doing
               everything manually and get
               back to what they do best.
@@ -441,10 +482,10 @@ export default function WorksPage() {
                 className="text-[1rem] leading-[1.65] text-text-primary sm:text-[1.1rem] md:text-[1.2rem]"
                 style={{ fontFamily: "var(--font-serif), Georgia, serif" }}
               >
-                I&apos;ve spent years building products
+                We&apos;ve spent years building products
                 and systems — from consumer apps to internal
                 tools — for startups and established businesses
-                alike. I bring an engineering-first approach
+                alike. We bring an engineering-first approach
                 to operations, combining AI tools with practical
                 design to deliver real results.
               </p>
@@ -453,8 +494,7 @@ export default function WorksPage() {
                 style={{ fontFamily: "var(--font-serif), Georgia, serif" }}
               >
                 Based in <strong className="font-bold">Toronto</strong>,
-                I work with local service businesses —
-                restaurants, studios, salons, clinics — to
+                we work with businesses across industries — to
                 replace manual workflows with systems
                 that run on their own. Fixed price,
                 delivered in days, fully owned by you.

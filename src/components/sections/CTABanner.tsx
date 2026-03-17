@@ -37,9 +37,9 @@ const whyReasons: {
     tagColor: "#8B5CF6",
   },
   {
-    title: "Toronto-focused",
+    title: "Built for real businesses",
     description:
-      "We understand the Toronto service business landscape. Restaurants, studios, salons, gyms — we know what works.",
+      "We've worked with businesses across industries. Our AI agents are configured to your specific tools, workflows, and customers.",
     sketchType: "cntower",
     tag: "LOCAL",
     tagColor: "#FB923C",
