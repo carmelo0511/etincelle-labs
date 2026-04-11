@@ -62,7 +62,7 @@ export function AIAuditSection() {
         {/* CTA */}
         <AnimateOnScroll delay={0.35}>
           <div className="mt-12 flex flex-col items-center gap-3">
-            <Button variant="primary" size="md" href="#contact">
+            <Button variant="primary" size="md" href="https://cal.com/bryan-nakache-vse3wk" target="_blank">
               Book your audit — $999
             </Button>
             <p className="text-[13px] text-text-muted">

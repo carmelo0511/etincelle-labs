@@ -120,7 +120,7 @@ export const pricingTiers = [
     ],
     popular: false,
     cta: "Book your audit",
-    href: "#contact",
+    href: "https://cal.com/bryan-nakache-vse3wk",
   },
   {
     name: "AI Agent",
@@ -135,7 +135,7 @@ export const pricingTiers = [
     ],
     popular: true,
     cta: "Get started",
-    href: "#contact",
+    href: "https://cal.com/bryan-nakache-vse3wk",
   },
   {
     name: "Custom Project",
@@ -151,7 +151,7 @@ export const pricingTiers = [
     ],
     popular: false,
     cta: "Let\u2019s talk",
-    href: "#contact",
+    href: "https://cal.com/bryan-nakache-vse3wk",
   },
 ];
 

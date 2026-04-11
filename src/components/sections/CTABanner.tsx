@@ -112,7 +112,7 @@ export function CTABanner() {
       <div
         ref={containerRef}
         style={{ height: `${(cardCount + 1) * 100}vh` }}
-        className="relative"
+        className="relative max-md:!h-[300vh]"
       >
         <div className="sticky top-0 z-[60] flex h-screen flex-col">
           {/* Header — fades out as cards scroll */}

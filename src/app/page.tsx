@@ -1,3 +1,4 @@
+import dynamic from "next/dynamic";
 import { Navbar } from "@/components/layout/Navbar";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { MissionSection } from "@/components/sections/MissionSection";
@@ -5,12 +6,13 @@ import { ServicesSection } from "@/components/sections/ServicesSection";
 import { WhatWeBuildSection } from "@/components/sections/WhatWeBuildSection";
 import { ProcessSection } from "@/components/sections/ProcessSection";
 import { AIAuditSection } from "@/components/sections/AIAuditSection";
-import { CTABanner } from "@/components/sections/CTABanner";
-import { StepsSection } from "@/components/sections/StepsSection";
-import { NewsSection } from "@/components/sections/NewsSection";
-import { FAQSection } from "@/components/sections/FAQSection";
 import { Footer } from "@/components/layout/Footer";
 import Script from "next/script";
+
+const CTABanner = dynamic(() => import("@/components/sections/CTABanner").then(m => ({ default: m.CTABanner })), { ssr: true });
+const StepsSection = dynamic(() => import("@/components/sections/StepsSection").then(m => ({ default: m.StepsSection })), { ssr: true });
+const NewsSection = dynamic(() => import("@/components/sections/NewsSection").then(m => ({ default: m.NewsSection })), { ssr: true });
+const FAQSection = dynamic(() => import("@/components/sections/FAQSection").then(m => ({ default: m.FAQSection })), { ssr: true });
 
 const jsonLd = {
   "@context": "https://schema.org",

@@ -30,7 +30,7 @@ export function StepsSection() {
         </AnimateOnScroll>
 
         {/* Pricing cards grid — 3 columns on desktop */}
-        <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-5">
+        <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-6 lg:grid-cols-3 lg:gap-5">
           {pricingTiers.map((tier, i) => (
             <AnimateOnScroll key={tier.name} delay={0.1 + i * 0.1}>
               <div
@@ -86,6 +86,7 @@ export function StepsSection() {
                     variant="primary"
                     size="md"
                     href={tier.href}
+                    target="_blank"
                   >
                     {tier.cta}
                   </Button>
