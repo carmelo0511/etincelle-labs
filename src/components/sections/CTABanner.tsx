@@ -174,13 +174,13 @@ export function CTABanner() {
                       opacity: cardOpacity,
                       transform: `scale(${scale})`,
                       transition: "opacity 0.4s ease-out, transform 0.4s ease-out",
-                      maxHeight: "calc(100vh - 180px)",
+                      maxHeight: "calc(100vh - 120px)",
                     }}
                   >
                     {/* Sketch card — flex column so text is never clipped */}
                     <div className="flex h-full flex-col overflow-hidden rounded-xl bg-white">
-                      {/* Sketch illustration — flexible height, shrinks to fit */}
-                      <div className="relative flex min-h-0 flex-1 items-center justify-center bg-[#e8e9e0]">
+                      {/* Sketch illustration — capped height so text never gets pushed off */}
+                      <div className="relative flex max-h-[40vh] min-h-0 flex-1 items-center justify-center bg-[#e8e9e0]">
                         <SketchIllustration
                           type={reason.sketchType}
                           className="h-full w-full p-10 opacity-80"
