@@ -161,9 +161,13 @@ export function CTABanner() {
                 const isActive = dist < 0.5;
                 const proximity = Math.max(0, 1 - dist);
 
-                // Scroll-driven transforms (no 3D — flat only)
+                // Scroll-driven transforms
                 const scale = 0.95 + proximity * 0.05;
                 const cardOpacity = isActive ? 1 : Math.max(0.4, 1 - dist * 0.4);
+
+                // Illustration animates when card is active
+                const illustrationScale = 0.85 + proximity * 0.15;
+                const illustrationOpacity = 0.3 + proximity * 0.5;
 
                 return (
                   <div
@@ -177,18 +181,25 @@ export function CTABanner() {
                       maxHeight: "calc(100vh - 120px)",
                     }}
                   >
-                    {/* Sketch card — flex column so text is never clipped */}
-                    <div className="flex h-full flex-col overflow-hidden rounded-xl bg-white">
-                      {/* Sketch illustration — capped height so text never gets pushed off */}
-                      <div className="relative flex max-h-[40vh] min-h-0 flex-1 items-center justify-center bg-[#e8e9e0]">
+                    {/* Uniform card — single background, illustration behind text */}
+                    <div className="relative flex h-full flex-col overflow-hidden rounded-xl bg-[#e8e9e0]">
+                      {/* Sketch illustration — centered, animates with scroll */}
+                      <div
+                        className="flex flex-1 items-center justify-center px-8 pt-8 md:px-12 md:pt-10"
+                        style={{
+                          transform: `scale(${illustrationScale})`,
+                          opacity: illustrationOpacity,
+                          transition: "transform 0.6s ease-out, opacity 0.6s ease-out",
+                        }}
+                      >
                         <SketchIllustration
                           type={reason.sketchType}
-                          className="h-full w-full p-10 opacity-80"
+                          className="h-full w-full max-h-[35vh]"
                         />
                       </div>
 
-                      {/* Title row: name + colored tag — always visible */}
-                      <div className="shrink-0 p-6 md:p-8">
+                      {/* Text at bottom — same background, no visual break */}
+                      <div className="shrink-0 px-6 pb-6 pt-4 md:px-8 md:pb-8 md:pt-5">
                         <div className="flex items-center gap-3">
                           <h3 className="text-[1.1rem] font-semibold leading-tight tracking-[-0.01em] text-text-primary md:text-[1.25rem]">
                             {reason.title}
@@ -200,8 +211,6 @@ export function CTABanner() {
                             {reason.tag}
                           </span>
                         </div>
-
-                        {/* Description */}
                         <p className="mt-3 text-[14px] leading-relaxed text-text-secondary">
                           {reason.description}
                         </p>
