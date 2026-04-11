@@ -158,7 +158,7 @@ export function HeroSection() {
           custom={0.22}
           className="mt-6 max-w-lg text-[1.1rem] leading-relaxed text-text-secondary md:text-[1.2rem]"
         >
-          We build AI agents tailored to your business — handling calls, reviews, bookings, and leads 24/7. Fixed setup. Monthly plans starting at $297.
+          We build AI agents tailored to your business — handling calls, reviews, bookings, and leads 24/7. Start with a $999 AI audit — or jump straight to a build.
         </motion.p>
 
         {/* CTA */}

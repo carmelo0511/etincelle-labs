@@ -317,7 +317,7 @@ export function ProcessSection() {
                         key={step.numeral}
                         className="absolute inset-x-0 flex flex-col justify-start transition-all duration-700 ease-[cubic-bezier(0.25,0.1,0.25,1)]"
                         style={{
-                          transform: `translateY(${distance * 140 + 140}px)`,
+                          transform: `translateY(${distance * 160 + 160}px)`,
                           opacity,
                         }}
                       >

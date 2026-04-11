@@ -1,5 +1,6 @@
 export const navLinks = [
   { label: "Solutions", href: "#solutions" },
+  { label: "AI Audit", href: "#ai-audit" },
   { label: "Pricing", href: "#pricing" },
   { label: "Case Studies", href: "/works" },
   { label: "Contact", href: "/contact" },
@@ -40,7 +41,7 @@ export const processSteps = [
     numeral: "i",
     title: "Audit",
     description:
-      "We map your current tools, workflows, and time drains. One call, no fluff.",
+      "We map your current tools, workflows, and time drains. Available as a standalone $999 offer — or included when you start a build.",
   },
   {
     numeral: "ii",
@@ -107,44 +108,50 @@ export const services = [
 
 export const pricingTiers = [
   {
-    name: "Essentials",
-    price: "$297",
-    currency: "",
-    period: "/mo",
-    subtitle: "One AI agent. One problem solved.",
-    description:
-      "One AI agent. One problem solved.",
+    name: "AI Audit",
+    price: "$999",
+    period: "",
+    subtitle: "Not sure where to start? This is it.",
     features: [
-      "One AI agent tailored to your business",
-      "Business-specific setup and training",
-      "Dashboard to track performance",
-      "Monthly performance check-in",
-      "Email support",
+      "60-min process mapping call",
+      "Written report ranking your biggest time and money wasters",
+      "Prioritized automation roadmap with specific AI recommendations",
+      "Credited toward your build if you move forward",
     ],
-    setupFee: "$500 one-time setup",
     popular: false,
-    cta: "Get started",
-    href: "https://cal.com/bryan-nakache-vse3wk",
+    cta: "Book your audit",
+    href: "#contact",
   },
   {
-    name: "Growth",
-    price: "$697",
-    currency: "",
-    period: "/mo",
-    subtitle: "A complete AI operations layer for your business.",
-    description:
-      "A complete AI operations layer for your business.",
+    name: "AI Agent",
+    price: "from $500",
+    period: "",
+    subtitle: "One agent. One problem solved.",
     features: [
-      "Unlimited AI agents and automations",
-      "Workflow automations connecting your existing tools",
-      "Custom integrations (CRM, POS, booking tools, etc.)",
-      "Bi-weekly optimization calls",
-      "Priority support via Slack or WhatsApp",
+      "$500–$1,000 one-time setup depending on complexity",
+      "$300–$500/month to keep it running and optimized",
+      "Business-specific training and integrations",
+      "Email support included",
     ],
-    setupFee: "$1,500 one-time setup",
     popular: true,
-    cta: "Book a call",
-    href: "https://cal.com/bryan-nakache-vse3wk",
+    cta: "Get started",
+    href: "#contact",
+  },
+  {
+    name: "Custom Project",
+    price: "from $1,500",
+    period: "",
+    subtitle: "Something bigger? We build it.",
+    features: [
+      "AI agents, workflow automations, and internal tools",
+      "Multi-step systems connecting your existing stack",
+      "Full integrations with your CRM, POS, booking tools, and more",
+      "Fixed price agreed upfront — no hourly surprises",
+      "You own everything we build",
+    ],
+    popular: false,
+    cta: "Let\u2019s talk",
+    href: "#contact",
   },
 ];
 
@@ -274,6 +281,11 @@ export const teamMembers = [
 
 export const faqs = [
   {
+    question: "How do I get started if I\u2019m not sure what I need?",
+    answer:
+      "Start with our $999 AI Audit. In one 60-min call we map your entire operation, rank your biggest time and money wasters, and deliver a prioritized automation roadmap. If you move forward with a build, the $999 is credited toward your project.",
+  },
+  {
     question: "What kind of businesses do you work with?",
     answer:
       "Any business that's losing time to manual work, missed calls, or slow follow-ups. We've worked with restaurants, clinics, studios, home service companies, and more — but our AI agents adapt to any industry.",
@@ -306,6 +318,6 @@ export const faqs = [
   {
     question: "Can I start small and upgrade later?",
     answer:
-      "Yes. Most clients start with our Essentials plan — one AI agent solving their biggest pain point. Once they see results, they upgrade to Growth to automate more of their operations.",
+      "Yes. Most clients start with a single AI agent solving their biggest pain point. Once they see results, they expand to a custom project to automate more of their operations.",
   },
 ];

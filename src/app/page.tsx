@@ -4,6 +4,7 @@ import { MissionSection } from "@/components/sections/MissionSection";
 import { ServicesSection } from "@/components/sections/ServicesSection";
 import { WhatWeBuildSection } from "@/components/sections/WhatWeBuildSection";
 import { ProcessSection } from "@/components/sections/ProcessSection";
+import { AIAuditSection } from "@/components/sections/AIAuditSection";
 import { CTABanner } from "@/components/sections/CTABanner";
 import { StepsSection } from "@/components/sections/StepsSection";
 import { NewsSection } from "@/components/sections/NewsSection";
@@ -41,8 +42,7 @@ const jsonLd = {
         "custom dashboards",
       ],
       sameAs: [
-        "https://linkedin.com/company/etincelle-labs",
-        "https://x.com/etincelle_labs",
+        "https://www.linkedin.com/in/bryannakache/",
       ],
     },
     {
@@ -52,7 +52,7 @@ const jsonLd = {
       url: "https://etincellelabs.com",
       email: "hello@etincellelabs.com",
       description:
-        "AI operations studio in Toronto. We build AI agents that answer your phones, manage your reviews, capture leads, and automate your operations — monthly plans from $297/mo.",
+        "AI operations studio in Toronto. We build AI agents that answer your phones, manage your reviews, capture leads, and automate your operations.",
       founder: {
         "@type": "Person",
         name: "Bryan Nakache",
@@ -100,7 +100,7 @@ const jsonLd = {
       name: "AI Operations Systems",
       provider: { "@id": "https://etincellelabs.com/#organization" },
       description:
-        "AI agents, workflow automations, and smart dashboards for businesses — including AI receptionists, review managers, lead capture, and booking assistants. Monthly plans from $297/mo.",
+        "AI agents, workflow automations, and smart dashboards for businesses — including AI receptionists, review managers, lead capture, and booking assistants.",
       areaServed: {
         "@type": "City",
         name: "Toronto",
@@ -108,25 +108,41 @@ const jsonLd = {
       offers: [
         {
           "@type": "Offer",
-          name: "Essentials",
-          price: "297",
+          name: "AI Audit",
+          price: "999",
           priceCurrency: "CAD",
           description:
-            "One AI agent tailored to your business with dashboard, monthly check-in, and email support. $500 one-time setup.",
+            "60-min process mapping call with written report and prioritized automation roadmap. Credited toward your build if you move forward.",
         },
         {
           "@type": "Offer",
-          name: "Growth",
-          price: "697",
+          name: "AI Agent",
+          price: "500",
           priceCurrency: "CAD",
           description:
-            "Unlimited AI agents and automations, custom integrations, bi-weekly optimization calls, and priority support. $1,500 one-time setup.",
+            "One AI agent — $500–$1,000 one-time setup, $300–$500/month to keep it running and optimized.",
+        },
+        {
+          "@type": "Offer",
+          name: "Custom Project",
+          price: "1500",
+          priceCurrency: "CAD",
+          description:
+            "AI agents, workflow automations, and internal tools. Fixed price agreed upfront. You own everything we build.",
         },
       ],
     },
     {
       "@type": "FAQPage",
       mainEntity: [
+        {
+          "@type": "Question",
+          name: "How do I get started if I'm not sure what I need?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Start with our $999 AI Audit. In one 60-min call we map your entire operation, rank your biggest time and money wasters, and deliver a prioritized automation roadmap. If you move forward with a build, the $999 is credited toward your project.",
+          },
+        },
         {
           "@type": "Question",
           name: "What kind of businesses do you work with?",
@@ -180,7 +196,7 @@ const jsonLd = {
           name: "Can I start small and upgrade later?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Yes. Most clients start with our Essentials plan — one AI agent solving their biggest pain point. Once they see results, they upgrade to Growth to automate more of their operations.",
+            text: "Yes. Most clients start with a single AI agent solving their biggest pain point. Once they see results, they expand to a custom project to automate more of their operations.",
           },
         },
       ],
@@ -203,6 +219,7 @@ export default function Home() {
         <WhatWeBuildSection />
         <ProcessSection />
         <ServicesSection />
+        <AIAuditSection />
         <StepsSection />
         <CTABanner />
         <NewsSection />

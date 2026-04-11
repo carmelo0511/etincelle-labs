@@ -10,7 +10,7 @@ export function StepsSection() {
         <AnimateOnScroll>
           <div className="flex items-center gap-5">
             <div className="flex h-9 w-9 items-center justify-center rounded-full border border-border-light">
-              <span className="text-[13px] text-text-muted">3</span>
+              <span className="text-[13px] text-text-muted">4</span>
             </div>
             <div className="h-px w-14 bg-border-light" />
             <span className="text-[14px] font-normal text-text-muted">
@@ -25,12 +25,12 @@ export function StepsSection() {
             <span className="text-text-secondary">Not the clock.</span>
           </h2>
           <p className="mt-4 max-w-md text-[15px] leading-relaxed text-text-secondary">
-            Monthly plans. No contracts. You own everything.
+            Fixed pricing. No contracts. You own everything.
           </p>
         </AnimateOnScroll>
 
-        {/* Pricing cards grid */}
-        <div className="mt-16 grid grid-cols-1 gap-6 lg:grid-cols-2 lg:gap-5">
+        {/* Pricing cards grid — 3 columns on desktop */}
+        <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-5">
           {pricingTiers.map((tier, i) => (
             <AnimateOnScroll key={tier.name} delay={0.1 + i * 0.1}>
               <div
@@ -40,7 +40,7 @@ export function StepsSection() {
                     : "bg-cream-dark"
                 }`}
               >
-                {/* Most Popular badge */}
+                {/* Popular badge */}
                 {tier.popular && (
                   <div className="absolute right-5 top-5 rounded-full bg-text-primary px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.08em] text-cream">
                     Most Popular
@@ -53,12 +53,14 @@ export function StepsSection() {
                     {tier.name}
                   </span>
                   <div className="mt-3 flex items-baseline gap-1">
-                    <span className="text-[2.5rem] font-semibold tracking-[-0.03em] text-text-primary md:text-[3rem]">
+                    <span className="text-[2rem] font-semibold tracking-[-0.03em] text-text-primary md:text-[2.5rem]">
                       {tier.price}
                     </span>
-                    <span className="text-[14px] text-text-muted">
-                      {tier.period}
-                    </span>
+                    {tier.period && (
+                      <span className="text-[14px] text-text-muted">
+                        {tier.period}
+                      </span>
+                    )}
                   </div>
                   <p className="mt-3 max-w-sm text-[14px] leading-relaxed text-text-secondary">
                     {tier.subtitle}
@@ -78,20 +80,12 @@ export function StepsSection() {
                   ))}
                 </ul>
 
-                {/* Setup fee */}
-                <div className="px-7 pb-4 md:px-8">
-                  <p className="text-[12px] text-text-muted">
-                    {tier.setupFee}
-                  </p>
-                </div>
-
                 {/* CTA */}
                 <div className="mt-auto px-7 pb-7 md:px-8 md:pb-8">
                   <Button
                     variant="primary"
                     size="md"
                     href={tier.href}
-                    target="_blank"
                   >
                     {tier.cta}
                   </Button>
@@ -104,20 +98,8 @@ export function StepsSection() {
         {/* Bottom text */}
         <AnimateOnScroll delay={0.3}>
           <div className="mt-10 text-center">
-            <p className="text-[14px] text-text-secondary">
-              Month-to-month. No contracts. Cancel anytime. You own everything.
-            </p>
-            <p className="mt-3 text-[12px] text-text-muted">
-              Need a one-time custom build? We do{" "}
-              <a
-                href="https://cal.com/bryan-nakache-vse3wk"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="underline underline-offset-2 transition-colors hover:text-text-primary"
-              >
-                project work
-              </a>{" "}
-              starting at $1,999.
+            <p className="text-[13px] text-text-muted">
+              Month-to-month. Cancel anytime. No lock-in.
             </p>
           </div>
         </AnimateOnScroll>
